@@ -1,0 +1,22 @@
+
+--- [START 2017-07-18 17:18:30] ----------------------------------------------------------------
+
+
+** dataset setting **
+	(height,width)    = (128, 128)
+	in_channels       = 3
+	test_dataset.split = test-61191
+	test_dataset.num  = 61191
+	batch_size        = 96
+
+** net setting **
+	model_file = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/vgg19-jpg-1/snap/final.torch
+
+** predict @ agument = default **
+** predict @ agument = left-right **
+** predict @ agument = up-down **
+** predict @ agument = transpose **
+** predict @ agument = rotate90 **
+** predict @ agument = rotate180 **
+** predict @ agument = rotate270 **
+

@@ -1,0 +1,170 @@
+
+--- [START 2017-07-20 15:13:19] ----------------------------------------------------------------
+
+
+** dataset setting **
+	(height,width)     = (256, 256)
+	in_channels        = 3
+	test_dataset.split = train-40479
+	test_dataset.num   = 40479
+	batch_size         = 64
+
+** net setting **
+	model_file = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-0/snap/final.torch
+
+
+--- [START 2017-07-20 15:30:39] ----------------------------------------------------------------
+
+
+** dataset setting **
+	(height,width)     = (256, 256)
+	in_channels        = 3
+	test_dataset.split = train-40479
+	test_dataset.num   = 40479
+	batch_size         = 64
+
+** net setting **
+	model_file = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-0/snap/final.torch
+
+** predict @ agument = default **
+		test_loss=0.073995, test_acc=0.937073
+
+** predict @ agument = left-right **
+		test_loss=0.076284, test_acc=0.934839
+
+** predict @ agument = up-down **
+		test_loss=0.076340, test_acc=0.934587
+
+** predict @ agument = transpose **
+		test_loss=0.073866, test_acc=0.937194
+
+** predict @ agument = rotate90 **
+		test_loss=0.076409, test_acc=0.934406
+
+** predict @ agument = rotate180 **
+		test_loss=0.076646, test_acc=0.934330
+
+** predict @ agument = rotate270 **
+		test_loss=0.076348, test_acc=0.934645
+
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-0/thresholds/default **
+*best_threshold (fixed)*
+[ 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205,
+  0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205]
+*best_score*
+0.9374 (0.9374)
+*best_threshold (per class)*
+[ 0.200, 0.190, 0.210, 0.070, 0.330, 0.220, 0.200, 0.250, 0.210, 0.260,
+  0.140, 0.100, 0.120, 0.240, 0.150, 0.190, 0.040]
+*best_score*
+0.9386 (0.9386)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-0/thresholds/left-right **
+*best_threshold (fixed)*
+[ 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205,
+  0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205]
+*best_score*
+0.9352 (0.9352)
+*best_threshold (per class)*
+[ 0.210, 0.190, 0.240, 0.090, 0.290, 0.210, 0.200, 0.250, 0.220, 0.250,
+  0.110, 0.120, 0.160, 0.180, 0.160, 0.160, 0.040]
+*best_score*
+0.9366 (0.9366)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-0/thresholds/up-down **
+*best_threshold (fixed)*
+[ 0.215, 0.215, 0.215, 0.215, 0.215, 0.215, 0.215, 0.215, 0.215, 0.215,
+  0.215, 0.215, 0.215, 0.215, 0.215, 0.215, 0.215]
+*best_score*
+0.9351 (0.9351)
+*best_threshold (per class)*
+[ 0.190, 0.210, 0.270, 0.110, 0.290, 0.230, 0.220, 0.230, 0.260, 0.240,
+  0.140, 0.120, 0.150, 0.250, 0.160, 0.170, 0.040]
+*best_score*
+0.9367 (0.9367)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-0/thresholds/transpose **
+*best_threshold (fixed)*
+[ 0.220, 0.220, 0.220, 0.220, 0.220, 0.220, 0.220, 0.220, 0.220, 0.220,
+  0.220, 0.220, 0.220, 0.220, 0.220, 0.220, 0.220]
+*best_score*
+0.9375 (0.9375)
+*best_threshold (per class)*
+[ 0.240, 0.220, 0.200, 0.080, 0.370, 0.230, 0.220, 0.230, 0.230, 0.230,
+  0.110, 0.120, 0.150, 0.240, 0.180, 0.150, 0.040]
+*best_score*
+0.9389 (0.9389)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-0/thresholds/rotate90 **
+*best_threshold (fixed)*
+[ 0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200,
+  0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200]
+*best_score*
+0.9349 (0.9349)
+*best_threshold (per class)*
+[ 0.190, 0.190, 0.200, 0.090, 0.320, 0.220, 0.190, 0.220, 0.210, 0.220,
+  0.100, 0.110, 0.160, 0.180, 0.150, 0.190, 0.050]
+*best_score*
+0.9364 (0.9364)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-0/thresholds/rotate180 **
+*best_threshold (fixed)*
+[ 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205,
+  0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205]
+*best_score*
+0.9348 (0.9348)
+*best_threshold (per class)*
+[ 0.200, 0.210, 0.230, 0.070, 0.290, 0.220, 0.210, 0.230, 0.200, 0.210,
+  0.150, 0.120, 0.140, 0.170, 0.150, 0.210, 0.040]
+*best_score*
+0.9363 (0.9363)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-0/thresholds/rotate270 **
+*best_threshold (fixed)*
+[ 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205,
+  0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205]
+*best_score*
+0.9350 (0.9350)
+*best_threshold (per class)*
+[ 0.230, 0.190, 0.220, 0.100, 0.370, 0.230, 0.200, 0.260, 0.200, 0.220,
+  0.140, 0.110, 0.120, 0.180, 0.170, 0.170, 0.040]
+*best_score*
+0.9363 (0.9363)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-0/thresholds/average **
+*best_threshold (fixed)*
+[ 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210,
+  0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210]
+*best_score*
+0.9365 (0.9365)
+*best_threshold (per class)*
+[ 0.210, 0.170, 0.210, 0.080, 0.380, 0.230, 0.200, 0.250, 0.220, 0.240,
+  0.130, 0.110, 0.160, 0.190, 0.150, 0.180, 0.050]
+*best_score*
+0.9379 (0.9379)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-0/thresholds/max **
+*best_threshold (fixed)*
+[ 0.255, 0.255, 0.255, 0.255, 0.255, 0.255, 0.255, 0.255, 0.255, 0.255,
+  0.255, 0.255, 0.255, 0.255, 0.255, 0.255, 0.255]
+*best_score*
+0.9362 (0.9362)
+*best_threshold (per class)*
+[ 0.260, 0.210, 0.370, 0.110, 0.420, 0.280, 0.300, 0.260, 0.310, 0.290,
+  0.150, 0.120, 0.180, 0.330, 0.200, 0.220, 0.040]
+*best_score*
+0.9378 (0.9378)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-0/thresholds/vote **
+*best_threshold (fixed)*
+[ 0.290, 0.290, 0.290, 0.290, 0.290, 0.290, 0.290, 0.290, 0.290, 0.290,
+  0.290, 0.290, 0.290, 0.290, 0.290, 0.290, 0.290]
+*best_score*
+0.9380 (0.9380)
+*best_threshold (per class)*
+[ 0.290, 0.150, 0.430, 0.290, 0.580, 0.580, 0.290, 0.430, 0.290, 0.290,
+  0.150, 0.290, 0.430, 0.430, 0.430, 0.290, 0.000]
+*best_score*
+0.9383 (0.9383)
+

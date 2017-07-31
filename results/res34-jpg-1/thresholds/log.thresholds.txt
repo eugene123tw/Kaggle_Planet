@@ -1,0 +1,277 @@
+
+--- [START 2017-07-20 07:51:36] ----------------------------------------------------------------
+
+
+** dataset setting **
+	(height,width)     = (256, 256)
+	in_channels        = 3
+	test_dataset.split = train-35479
+	test_dataset.num   = 35479
+	batch_size         = 64
+
+** net setting **
+	model_file = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/snap/final.torch
+
+
+--- [START 2017-07-20 09:48:22] ----------------------------------------------------------------
+
+
+** dataset setting **
+	(height,width)     = (256, 256)
+	in_channels        = 3
+	test_dataset.split = train-40479
+	test_dataset.num   = 40479
+	batch_size         = 64
+
+** net setting **
+	model_file = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/snap/final.torch
+
+** predict @ agument = default **
+
+--- [START 2017-07-20 10:02:07] ----------------------------------------------------------------
+
+
+** dataset setting **
+	(height,width)     = (256, 256)
+	in_channels        = 3
+	test_dataset.split = train-40479
+	test_dataset.num   = 40479
+	batch_size         = 64
+
+** net setting **
+	model_file = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/snap/final.torch
+
+** predict @ agument = default **
+
+--- [START 2017-07-20 10:18:31] ----------------------------------------------------------------
+
+
+** dataset setting **
+	(height,width)     = (256, 256)
+	in_channels        = 3
+	test_dataset.split = train-40479
+	test_dataset.num   = 40479
+	batch_size         = 32
+
+** net setting **
+	model_file = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/snap/final.torch
+
+** predict @ agument = default **
+
+--- [START 2017-07-20 10:31:01] ----------------------------------------------------------------
+
+
+** dataset setting **
+	(height,width)     = (256, 256)
+	in_channels        = 3
+	test_dataset.split = train-40479
+	test_dataset.num   = 40479
+	batch_size         = 64
+
+** net setting **
+	model_file = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/snap/final.torch
+
+** predict @ agument = default **
+
+--- [START 2017-07-20 10:42:38] ----------------------------------------------------------------
+
+
+** dataset setting **
+	(height,width)     = (256, 256)
+	in_channels        = 3
+	test_dataset.split = train-40479
+	test_dataset.num   = 40479
+	batch_size         = 32
+
+** net setting **
+	model_file = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/snap/final.torch
+
+** predict @ agument = default **
+
+--- [START 2017-07-20 10:53:59] ----------------------------------------------------------------
+
+
+** dataset setting **
+	(height,width)     = (256, 256)
+	in_channels        = 3
+	test_dataset.split = train-32479
+	test_dataset.num   = 32479
+	batch_size         = 64
+
+** net setting **
+	model_file = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/snap/final.torch
+
+** predict @ agument = default **
+
+--- [START 2017-07-20 11:02:35] ----------------------------------------------------------------
+
+
+** dataset setting **
+	(height,width)     = (256, 256)
+	in_channels        = 3
+	test_dataset.split = train-32479
+	test_dataset.num   = 32479
+	batch_size         = 64
+
+** net setting **
+	model_file = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/snap/final.torch
+
+** predict @ agument = default **
+		test_loss=0.073691, test_acc=0.938233
+
+
+--- [START 2017-07-20 11:06:49] ----------------------------------------------------------------
+
+
+** dataset setting **
+	(height,width)     = (256, 256)
+	in_channels        = 3
+	test_dataset.split = train-40479
+	test_dataset.num   = 40479
+	batch_size         = 64
+
+** net setting **
+	model_file = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/snap/final.torch
+
+** predict @ agument = default **
+		test_loss=0.073637, test_acc=0.937813
+
+** predict @ agument = left-right **
+		test_loss=0.076291, test_acc=0.935260
+
+** predict @ agument = up-down **
+		test_loss=0.076262, test_acc=0.935033
+
+** predict @ agument = transpose **
+		test_loss=0.073625, test_acc=0.937842
+
+** predict @ agument = rotate90 **
+		test_loss=0.076152, test_acc=0.935057
+
+** predict @ agument = rotate180 **
+		test_loss=0.076510, test_acc=0.934679
+
+** predict @ agument = rotate270 **
+		test_loss=0.076417, test_acc=0.935151
+
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/thresholds/default **
+*best_threshold (fixed)*
+[ 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205,
+  0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205]
+*best_score*
+0.9383 (0.9383)
+*best_threshold (per class)*
+[ 0.220, 0.200, 0.260, 0.110, 0.280, 0.220, 0.210, 0.270, 0.230, 0.260,
+  0.120, 0.100, 0.100, 0.240, 0.180, 0.170, 0.040]
+*best_score*
+0.9395 (0.9395)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/thresholds/left-right **
+*best_threshold (fixed)*
+[ 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210,
+  0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210]
+*best_score*
+0.9356 (0.9356)
+*best_threshold (per class)*
+[ 0.240, 0.170, 0.200, 0.090, 0.280, 0.250, 0.180, 0.230, 0.200, 0.250,
+  0.120, 0.100, 0.130, 0.220, 0.190, 0.150, 0.040]
+*best_score*
+0.9368 (0.9368)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/thresholds/up-down **
+*best_threshold (fixed)*
+[ 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210,
+  0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210]
+*best_score*
+0.9354 (0.9354)
+*best_threshold (per class)*
+[ 0.170, 0.190, 0.210, 0.090, 0.290, 0.220, 0.180, 0.230, 0.260, 0.220,
+  0.120, 0.100, 0.110, 0.240, 0.140, 0.160, 0.040]
+*best_score*
+0.9367 (0.9367)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/thresholds/transpose **
+*best_threshold (fixed)*
+[ 0.225, 0.225, 0.225, 0.225, 0.225, 0.225, 0.225, 0.225, 0.225, 0.225,
+  0.225, 0.225, 0.225, 0.225, 0.225, 0.225, 0.225]
+*best_score*
+0.9381 (0.9381)
+*best_threshold (per class)*
+[ 0.230, 0.170, 0.200, 0.100, 0.290, 0.210, 0.200, 0.220, 0.240, 0.240,
+  0.120, 0.100, 0.120, 0.200, 0.140, 0.190, 0.040]
+*best_score*
+0.9395 (0.9395)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/thresholds/rotate90 **
+*best_threshold (fixed)*
+[ 0.195, 0.195, 0.195, 0.195, 0.195, 0.195, 0.195, 0.195, 0.195, 0.195,
+  0.195, 0.195, 0.195, 0.195, 0.195, 0.195, 0.195]
+*best_score*
+0.9355 (0.9355)
+*best_threshold (per class)*
+[ 0.190, 0.190, 0.180, 0.100, 0.280, 0.240, 0.170, 0.210, 0.240, 0.210,
+  0.120, 0.090, 0.140, 0.160, 0.150, 0.150, 0.040]
+*best_score*
+0.9367 (0.9367)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/thresholds/rotate180 **
+*best_threshold (fixed)*
+[ 0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200,
+  0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200]
+*best_score*
+0.9353 (0.9353)
+*best_threshold (per class)*
+[ 0.160, 0.210, 0.170, 0.090, 0.250, 0.200, 0.180, 0.240, 0.250, 0.240,
+  0.120, 0.110, 0.090, 0.220, 0.170, 0.170, 0.040]
+*best_score*
+0.9365 (0.9365)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/thresholds/rotate270 **
+*best_threshold (fixed)*
+[ 0.195, 0.195, 0.195, 0.195, 0.195, 0.195, 0.195, 0.195, 0.195, 0.195,
+  0.195, 0.195, 0.195, 0.195, 0.195, 0.195, 0.195]
+*best_score*
+0.9353 (0.9353)
+*best_threshold (per class)*
+[ 0.220, 0.160, 0.150, 0.080, 0.290, 0.200, 0.180, 0.240, 0.230, 0.230,
+  0.120, 0.090, 0.130, 0.130, 0.170, 0.180, 0.040]
+*best_score*
+0.9365 (0.9365)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/thresholds/average **
+*best_threshold (fixed)*
+[ 0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200,
+  0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200]
+*best_score*
+0.9371 (0.9371)
+*best_threshold (per class)*
+[ 0.230, 0.190, 0.220, 0.100, 0.310, 0.250, 0.180, 0.250, 0.230, 0.250,
+  0.120, 0.100, 0.120, 0.210, 0.150, 0.190, 0.040]
+*best_score*
+0.9384 (0.9384)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/thresholds/max **
+*best_threshold (fixed)*
+[ 0.250, 0.250, 0.250, 0.250, 0.250, 0.250, 0.250, 0.250, 0.250, 0.250,
+  0.250, 0.250, 0.250, 0.250, 0.250, 0.250, 0.250]
+*best_score*
+0.9367 (0.9367)
+*best_threshold (per class)*
+[ 0.290, 0.220, 0.320, 0.130, 0.360, 0.310, 0.270, 0.330, 0.290, 0.320,
+  0.120, 0.120, 0.150, 0.290, 0.180, 0.240, 0.040]
+*best_score*
+0.9382 (0.9382)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/thresholds/vote **
+*best_threshold (fixed)*
+[ 0.430, 0.430, 0.430, 0.430, 0.430, 0.430, 0.430, 0.430, 0.430, 0.430,
+  0.430, 0.430, 0.430, 0.430, 0.430, 0.430, 0.430]
+*best_score*
+0.9384 (0.9384)
+*best_threshold (per class)*
+[ 0.580, 0.430, 0.430, 0.430, 0.290, 0.430, 0.430, 0.430, 0.290, 0.290,
+  0.000, 0.290, 0.580, 0.430, 0.150, 0.150, 0.290]
+*best_score*
+0.9386 (0.9386)
+

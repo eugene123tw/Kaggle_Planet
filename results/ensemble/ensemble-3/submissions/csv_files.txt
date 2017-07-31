@@ -1,0 +1,6 @@
+/home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/vgg19-jpg-0/submissions/average/results.csv
+/home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/vgg19-jpg-1/submissions/average/results.csv
+/home/eugene/Documents/Kaggle_Planet/forest-developer/starter kit -7/results/PyNet_10-jpg-baseline-1/submissions/average/results-0.92669.csv
+/home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-0/submissions/average/results.csv
+/home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/submissions/average/results.csv
+/home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/dense121-jpg-1/submissions/average/results.csv

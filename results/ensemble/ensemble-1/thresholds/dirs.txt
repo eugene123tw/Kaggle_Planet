@@ -1,0 +1,5 @@
+standard-eugene/results/vgg19-jpg-0/<replace>/average
+standard-eugene/results/vgg19-jpg-1/<replace>/average
+starter kit -7/results/PyNet_10-jpg-baseline-1/<replace>/average
+standard-eugene/results/res34-jpg-0/<replace>/average
+standard-eugene/results/res34-jpg-1/<replace>/average

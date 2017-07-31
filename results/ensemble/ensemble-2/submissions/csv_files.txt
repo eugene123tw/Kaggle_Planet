@@ -1,0 +1,2 @@
+/home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-0/submissions/average/results.csv
+/home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/submissions/average/results.csv

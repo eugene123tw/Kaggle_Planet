@@ -1,0 +1,2 @@
+standard-eugene/results/res34-jpg-0/<replace>/average
+standard-eugene/results/res34-jpg-1/<replace>/average

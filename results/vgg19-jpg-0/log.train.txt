@@ -1,0 +1,824 @@
+
+--- [START 2017-07-13 18:04:20] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED    = 123
+	file    = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/code/standard-7-1/train-forest-0.py
+	out_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/vgg19-jpg-0
+
+** dataset setting **
+	(height,width) = (128, 128)
+	in_channels    = 3
+	train_dataset.split  = train-32479
+	train_dataset.num    = 32479
+	test_dataset.split   = valid-8000
+	test_dataset.num     = 8000
+	batch_size           = 96
+	train_loader.sampler = <torch.utils.data.sampler.RandomSampler object at 0x7f418abb9160>
+	test_loader.sampler  = <torch.utils.data.sampler.SequentialSampler object at 0x7f418abb9eb8>
+
+def augment(x, u=0.75):
+    if random.random()<u:
+        if random.random()>0.5:
+            x = randomDistort1(x, distort_limit=0.35, shift_limit=0.25, u=1)
+        else:
+            x = randomDistort2(x, num_steps=10, distort_limit=0.2, u=1)
+        x = randomShiftScaleRotate(x, shift_limit=0.0625, scale_limit=0.10, rotate_limit=45, u=1)
+
+    x = randomFlip(x, u=0.5)
+    x = randomTranspose(x, u=0.5)
+    x = randomContrast(x, limit=0.2, u=0.5)
+    #x = randomSaturation(x, limit=0.2, u=0.5),
+    x = randomFilter(x, limit=0.5, u=0.2)
+    return x
+
+
+** net setting **
+<class 'net.model.vggnet.VGG'>
+
+    def __init__(self, in_shape, num_classes, cfg, batch_norm=False):
+        super(VGG, self).__init__()
+        in_channels, height, width = in_shape
+
+        self.features = self.make_layers(cfg=cfg, in_shape=in_shape, batch_norm=batch_norm)
+        self.fc = nn.Sequential(
+            nn.Linear(512, 2048),
+            nn.ReLU(True),
+            nn.Dropout(),
+            nn.Linear(2048, 2048),
+            nn.ReLU(True),
+            nn.Dropout(),
+            nn.Linear(2048, num_classes),
+        )
+        self._initialize_weights()
+
+    def forward(self, x):
+        x = self.features(x)
+        x = F.adaptive_avg_pool2d(x,output_size=1)
+        x = x.view(x.size(0), -1)
+        x = self.fc(x)
+
+        logit = x
+        prob = F.sigmoid(logit)
+        return logit, prob
+
+
+--missing keys at load_valid():--
+	 features.1.weight
+	 features.1.bias
+	 features.1.running_mean
+	 features.1.running_var
+	 features.3.weight
+	 features.3.bias
+	 features.4.weight
+	 features.4.bias
+	 features.4.running_mean
+	 features.4.running_var
+	 features.8.weight
+	 features.8.bias
+	 features.8.running_mean
+	 features.8.running_var
+	 features.11.weight
+	 features.11.bias
+	 features.11.running_mean
+	 features.11.running_var
+	 features.15.weight
+	 features.15.bias
+	 features.15.running_mean
+	 features.15.running_var
+	 features.17.weight
+	 features.17.bias
+	 features.18.weight
+	 features.18.bias
+	 features.18.running_mean
+	 features.18.running_var
+	 features.20.weight
+	 features.20.bias
+	 features.21.running_mean
+	 features.21.running_var
+	 features.24.weight
+	 features.24.bias
+	 features.24.running_mean
+	 features.24.running_var
+	 features.27.weight
+	 features.27.bias
+	 features.28.running_mean
+	 features.28.running_var
+	 features.31.weight
+	 features.31.bias
+	 features.31.running_mean
+	 features.31.running_var
+	 features.33.weight
+	 features.33.bias
+	 features.34.running_mean
+	 features.34.running_var
+	 features.36.weight
+	 features.36.bias
+	 features.37.weight
+	 features.37.bias
+	 features.37.running_mean
+	 features.37.running_var
+	 features.40.weight
+	 features.40.bias
+	 features.41.weight
+	 features.41.bias
+	 features.41.running_mean
+	 features.41.running_var
+	 features.43.weight
+	 features.43.bias
+	 features.44.weight
+	 features.44.bias
+	 features.44.running_mean
+	 features.44.running_var
+	 features.46.weight
+	 features.46.bias
+	 features.47.weight
+	 features.47.bias
+	 features.47.running_mean
+	 features.47.running_var
+	 features.49.weight
+	 features.49.bias
+	 features.50.weight
+	 features.50.bias
+	 features.50.running_mean
+	 features.50.running_var
+	 fc.0.weight
+	 fc.0.bias
+	 fc.3.weight
+	 fc.3.bias
+	 fc.6.weight
+	 fc.6.bias
+------------------------
+
+--- [START 2017-07-13 18:07:37] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED    = 123
+	file    = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/code/standard-7-1/train-forest-0.py
+	out_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/vgg19-jpg-0
+
+** dataset setting **
+	(height,width) = (128, 128)
+	in_channels    = 3
+	train_dataset.split  = train-32479
+	train_dataset.num    = 32479
+	test_dataset.split   = valid-8000
+	test_dataset.num     = 8000
+	batch_size           = 96
+	train_loader.sampler = <torch.utils.data.sampler.RandomSampler object at 0x7efc0ae650f0>
+	test_loader.sampler  = <torch.utils.data.sampler.SequentialSampler object at 0x7efc0ae65eb8>
+
+def augment(x, u=0.75):
+    if random.random()<u:
+        if random.random()>0.5:
+            x = randomDistort1(x, distort_limit=0.35, shift_limit=0.25, u=1)
+        else:
+            x = randomDistort2(x, num_steps=10, distort_limit=0.2, u=1)
+        x = randomShiftScaleRotate(x, shift_limit=0.0625, scale_limit=0.10, rotate_limit=45, u=1)
+
+    x = randomFlip(x, u=0.5)
+    x = randomTranspose(x, u=0.5)
+    x = randomContrast(x, limit=0.2, u=0.5)
+    #x = randomSaturation(x, limit=0.2, u=0.5),
+    x = randomFilter(x, limit=0.5, u=0.2)
+    return x
+
+
+** net setting **
+<class 'net.model.vggnet.VGG'>
+
+    def __init__(self, in_shape, num_classes, cfg, batch_norm=False):
+        super(VGG, self).__init__()
+        in_channels, height, width = in_shape
+
+        self.features = self.make_layers(cfg=cfg, in_shape=in_shape, batch_norm=batch_norm)
+        self.fc = nn.Sequential(
+            nn.Linear(512, 2048),
+            nn.ReLU(True),
+            nn.Dropout(),
+            nn.Linear(2048, 2048),
+            nn.ReLU(True),
+            nn.Dropout(),
+            nn.Linear(2048, num_classes),
+        )
+        self._initialize_weights()
+
+    def forward(self, x):
+        x = self.features(x)
+        x = F.adaptive_avg_pool2d(x,output_size=1)
+        x = x.view(x.size(0), -1)
+        x = self.fc(x)
+
+        logit = x
+        prob = F.sigmoid(logit)
+        return logit, prob
+
+
+--missing keys at load_valid():--
+	 features.1.weight
+	 features.1.bias
+	 features.1.running_mean
+	 features.1.running_var
+	 features.3.weight
+	 features.3.bias
+	 features.4.weight
+	 features.4.bias
+	 features.4.running_mean
+	 features.4.running_var
+	 features.8.weight
+	 features.8.bias
+	 features.8.running_mean
+	 features.8.running_var
+	 features.11.weight
+	 features.11.bias
+	 features.11.running_mean
+	 features.11.running_var
+	 features.15.weight
+	 features.15.bias
+	 features.15.running_mean
+	 features.15.running_var
+	 features.17.weight
+	 features.17.bias
+	 features.18.weight
+	 features.18.bias
+	 features.18.running_mean
+	 features.18.running_var
+	 features.20.weight
+	 features.20.bias
+	 features.21.running_mean
+	 features.21.running_var
+	 features.24.weight
+	 features.24.bias
+	 features.24.running_mean
+	 features.24.running_var
+	 features.27.weight
+	 features.27.bias
+	 features.28.running_mean
+	 features.28.running_var
+	 features.31.weight
+	 features.31.bias
+	 features.31.running_mean
+	 features.31.running_var
+	 features.33.weight
+	 features.33.bias
+	 features.34.running_mean
+	 features.34.running_var
+	 features.36.weight
+	 features.36.bias
+	 features.37.weight
+	 features.37.bias
+	 features.37.running_mean
+	 features.37.running_var
+	 features.40.weight
+	 features.40.bias
+	 features.41.weight
+	 features.41.bias
+	 features.41.running_mean
+	 features.41.running_var
+	 features.43.weight
+	 features.43.bias
+	 features.44.weight
+	 features.44.bias
+	 features.44.running_mean
+	 features.44.running_var
+	 features.46.weight
+	 features.46.bias
+	 features.47.weight
+	 features.47.bias
+	 features.47.running_mean
+	 features.47.running_var
+	 features.49.weight
+	 features.49.bias
+	 features.50.weight
+	 features.50.bias
+	 features.50.running_mean
+	 features.50.running_var
+	 fc.0.weight
+	 fc.0.bias
+	 fc.3.weight
+	 fc.3.bias
+	 fc.6.weight
+	 fc.6.bias
+------------------------
+
+--- [START 2017-07-13 18:09:26] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED    = 123
+	file    = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/code/standard-7-1/train-forest-0.py
+	out_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/vgg19-jpg-0
+
+** dataset setting **
+	(height,width) = (128, 128)
+	in_channels    = 3
+	train_dataset.split  = train-32479
+	train_dataset.num    = 32479
+	test_dataset.split   = valid-8000
+	test_dataset.num     = 8000
+	batch_size           = 96
+	train_loader.sampler = <torch.utils.data.sampler.RandomSampler object at 0x7ff02fc4a128>
+	test_loader.sampler  = <torch.utils.data.sampler.SequentialSampler object at 0x7ff02fc4aeb8>
+
+def augment(x, u=0.75):
+    if random.random()<u:
+        if random.random()>0.5:
+            x = randomDistort1(x, distort_limit=0.35, shift_limit=0.25, u=1)
+        else:
+            x = randomDistort2(x, num_steps=10, distort_limit=0.2, u=1)
+        x = randomShiftScaleRotate(x, shift_limit=0.0625, scale_limit=0.10, rotate_limit=45, u=1)
+
+    x = randomFlip(x, u=0.5)
+    x = randomTranspose(x, u=0.5)
+    x = randomContrast(x, limit=0.2, u=0.5)
+    #x = randomSaturation(x, limit=0.2, u=0.5),
+    x = randomFilter(x, limit=0.5, u=0.2)
+    return x
+
+
+** net setting **
+<class 'net.model.vggnet.VGG'>
+
+    def __init__(self, in_shape, num_classes, cfg, batch_norm=False):
+        super(VGG, self).__init__()
+        in_channels, height, width = in_shape
+
+        self.features = self.make_layers(cfg=cfg, in_shape=in_shape, batch_norm=batch_norm)
+        self.fc = nn.Sequential(
+            nn.Linear(512, 2048),
+            nn.ReLU(True),
+            nn.Dropout(),
+            nn.Linear(2048, 2048),
+            nn.ReLU(True),
+            nn.Dropout(),
+            nn.Linear(2048, num_classes),
+        )
+        self._initialize_weights()
+
+    def forward(self, x):
+        x = self.features(x)
+        x = F.adaptive_avg_pool2d(x,output_size=1)
+        x = x.view(x.size(0), -1)
+        x = self.fc(x)
+
+        logit = x
+        prob = F.sigmoid(logit)
+        return logit, prob
+
+
+--missing keys at load_valid():--
+	 features.1.weight
+	 features.1.bias
+	 features.1.running_mean
+	 features.1.running_var
+	 features.3.weight
+	 features.3.bias
+	 features.4.weight
+	 features.4.bias
+	 features.4.running_mean
+	 features.4.running_var
+	 features.8.weight
+	 features.8.bias
+	 features.8.running_mean
+	 features.8.running_var
+	 features.11.weight
+	 features.11.bias
+	 features.11.running_mean
+	 features.11.running_var
+	 features.15.weight
+	 features.15.bias
+	 features.15.running_mean
+	 features.15.running_var
+	 features.17.weight
+	 features.17.bias
+	 features.18.weight
+	 features.18.bias
+	 features.18.running_mean
+	 features.18.running_var
+	 features.20.weight
+	 features.20.bias
+	 features.21.running_mean
+	 features.21.running_var
+	 features.24.weight
+	 features.24.bias
+	 features.24.running_mean
+	 features.24.running_var
+	 features.27.weight
+	 features.27.bias
+	 features.28.running_mean
+	 features.28.running_var
+	 features.31.weight
+	 features.31.bias
+	 features.31.running_mean
+	 features.31.running_var
+	 features.33.weight
+	 features.33.bias
+	 features.34.running_mean
+	 features.34.running_var
+	 features.36.weight
+	 features.36.bias
+	 features.37.weight
+	 features.37.bias
+	 features.37.running_mean
+	 features.37.running_var
+	 features.40.weight
+	 features.40.bias
+	 features.41.weight
+	 features.41.bias
+	 features.41.running_mean
+	 features.41.running_var
+	 features.43.weight
+	 features.43.bias
+	 features.44.weight
+	 features.44.bias
+	 features.44.running_mean
+	 features.44.running_var
+	 features.46.weight
+	 features.46.bias
+	 features.47.weight
+	 features.47.bias
+	 features.47.running_mean
+	 features.47.running_var
+	 features.49.weight
+	 features.49.bias
+	 features.50.weight
+	 features.50.bias
+	 features.50.running_mean
+	 features.50.running_var
+	 fc.0.weight
+	 fc.0.bias
+	 fc.3.weight
+	 fc.3.bias
+	 fc.6.weight
+	 fc.6.bias
+------------------------
+
+--- [START 2017-07-13 18:13:39] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED    = 123
+	file    = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/code/standard-7-1/train-forest-0.py
+	out_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/vgg19-jpg-0
+
+** dataset setting **
+	(height,width) = (128, 128)
+	in_channels    = 3
+	train_dataset.split  = train-32479
+	train_dataset.num    = 32479
+	test_dataset.split   = valid-8000
+	test_dataset.num     = 8000
+	batch_size           = 96
+	train_loader.sampler = <torch.utils.data.sampler.RandomSampler object at 0x7f81741f6f98>
+	test_loader.sampler  = <torch.utils.data.sampler.SequentialSampler object at 0x7f81741f6ef0>
+
+def augment(x, u=0.75):
+    if random.random()<u:
+        if random.random()>0.5:
+            x = randomDistort1(x, distort_limit=0.35, shift_limit=0.25, u=1)
+        else:
+            x = randomDistort2(x, num_steps=10, distort_limit=0.2, u=1)
+        x = randomShiftScaleRotate(x, shift_limit=0.0625, scale_limit=0.10, rotate_limit=45, u=1)
+
+    x = randomFlip(x, u=0.5)
+    x = randomTranspose(x, u=0.5)
+    x = randomContrast(x, limit=0.2, u=0.5)
+    #x = randomSaturation(x, limit=0.2, u=0.5),
+    x = randomFilter(x, limit=0.5, u=0.2)
+    return x
+
+
+** net setting **
+<class 'net.model.vggnet.VGG'>
+
+    def __init__(self, in_shape, num_classes, cfg, batch_norm=False):
+        super(VGG, self).__init__()
+        in_channels, height, width = in_shape
+
+        self.features = self.make_layers(cfg=cfg, in_shape=in_shape, batch_norm=batch_norm)
+        self.fc = nn.Sequential(
+            nn.Linear(512, 2048),
+            nn.ReLU(True),
+            nn.Dropout(),
+            nn.Linear(2048, 2048),
+            nn.ReLU(True),
+            nn.Dropout(),
+            nn.Linear(2048, num_classes),
+        )
+        self._initialize_weights()
+
+    def forward(self, x):
+        x = self.features(x)
+        x = F.adaptive_avg_pool2d(x,output_size=1)
+        x = x.view(x.size(0), -1)
+        x = self.fc(x)
+
+        logit = x
+        prob = F.sigmoid(logit)
+        return logit, prob
+
+
+--missing keys at load_valid():--
+	 fc.0.weight
+	 fc.0.bias
+	 fc.3.weight
+	 fc.3.bias
+	 fc.6.weight
+	 fc.6.bias
+------------------------
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7f8163b6d8d0>
+ LR=Step Learning Rates
+rates=['0.1000', '0.0100', '0.0050', '0.0010', '0.0001', '-1.0000']
+steps=['0', '10', '25', '35', '40', '43']
+
+ epoch   iter   rate  |  smooth_loss   |  train_loss  (acc)  |  valid_loss  (acc)  | min
+----------------------------------------------------------------------------------------
+
+--- [START 2017-07-13 18:16:01] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED    = 123
+	file    = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/code/standard-7-1/train-forest-0.py
+	out_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/vgg19-jpg-0
+
+** dataset setting **
+	(height,width) = (128, 128)
+	in_channels    = 3
+	train_dataset.split  = train-32479
+	train_dataset.num    = 32479
+	test_dataset.split   = valid-8000
+	test_dataset.num     = 8000
+	batch_size           = 96
+	train_loader.sampler = <torch.utils.data.sampler.RandomSampler object at 0x7f5f08551128>
+	test_loader.sampler  = <torch.utils.data.sampler.SequentialSampler object at 0x7f5f08551eb8>
+
+def augment(x, u=0.75):
+    if random.random()<u:
+        if random.random()>0.5:
+            x = randomDistort1(x, distort_limit=0.35, shift_limit=0.25, u=1)
+        else:
+            x = randomDistort2(x, num_steps=10, distort_limit=0.2, u=1)
+        x = randomShiftScaleRotate(x, shift_limit=0.0625, scale_limit=0.10, rotate_limit=45, u=1)
+
+    x = randomFlip(x, u=0.5)
+    x = randomTranspose(x, u=0.5)
+    x = randomContrast(x, limit=0.2, u=0.5)
+    #x = randomSaturation(x, limit=0.2, u=0.5),
+    x = randomFilter(x, limit=0.5, u=0.2)
+    return x
+
+
+** net setting **
+<class 'net.model.vggnet.VGG'>
+
+    def __init__(self, in_shape, num_classes, cfg, batch_norm=False):
+        super(VGG, self).__init__()
+        in_channels, height, width = in_shape
+
+        self.features = self.make_layers(cfg=cfg, in_shape=in_shape, batch_norm=batch_norm)
+        self.fc = nn.Sequential(
+            nn.Linear(512, 2048),
+            nn.ReLU(True),
+            nn.Dropout(),
+            nn.Linear(2048, 2048),
+            nn.ReLU(True),
+            nn.Dropout(),
+            nn.Linear(2048, num_classes),
+        )
+        self._initialize_weights()
+
+    def forward(self, x):
+        x = self.features(x)
+        x = F.adaptive_avg_pool2d(x,output_size=1)
+        x = x.view(x.size(0), -1)
+        x = self.fc(x)
+
+        logit = x
+        prob = F.sigmoid(logit)
+        return logit, prob
+
+
+--missing keys at load_valid():--
+	 fc.0.weight
+	 fc.0.bias
+	 fc.3.weight
+	 fc.3.bias
+	 fc.6.weight
+	 fc.6.bias
+------------------------
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7f5f08551f98>
+ LR=Step Learning Rates
+rates=['0.1000', '0.0100', '0.0050', '0.0010', '0.0001', '-1.0000']
+steps=['0', '10', '25', '35', '40', '43']
+
+ epoch   iter   rate  |  smooth_loss   |  train_loss  (acc)  |  valid_loss  (acc)  | min
+----------------------------------------------------------------------------------------
+
+--- [START 2017-07-13 18:22:21] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED    = 123
+	file    = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/code/standard-7-1/train-forest-0.py
+	out_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/vgg19-jpg-0
+
+** dataset setting **
+	(height,width) = (128, 128)
+	in_channels    = 3
+	train_dataset.split  = train-32479
+	train_dataset.num    = 32479
+	test_dataset.split   = valid-8000
+	test_dataset.num     = 8000
+	batch_size           = 96
+	train_loader.sampler = <torch.utils.data.sampler.RandomSampler object at 0x7f2589b1bfd0>
+	test_loader.sampler  = <torch.utils.data.sampler.SequentialSampler object at 0x7f2589b0beb8>
+
+def augment(x, u=0.75):
+    if random.random()<u:
+        if random.random()>0.5:
+            x = randomDistort1(x, distort_limit=0.35, shift_limit=0.25, u=1)
+        else:
+            x = randomDistort2(x, num_steps=10, distort_limit=0.2, u=1)
+        x = randomShiftScaleRotate(x, shift_limit=0.0625, scale_limit=0.10, rotate_limit=45, u=1)
+
+    x = randomFlip(x, u=0.5)
+    x = randomTranspose(x, u=0.5)
+    x = randomContrast(x, limit=0.2, u=0.5)
+    #x = randomSaturation(x, limit=0.2, u=0.5),
+    x = randomFilter(x, limit=0.5, u=0.2)
+    return x
+
+
+** net setting **
+<class 'net.model.vggnet.VGG'>
+
+    def __init__(self, in_shape, num_classes, cfg, batch_norm=False):
+        super(VGG, self).__init__()
+        in_channels, height, width = in_shape
+
+        self.features = self.make_layers(cfg=cfg, in_shape=in_shape, batch_norm=batch_norm)
+        self.fc = nn.Sequential(
+            nn.Linear(512, 2048),
+            nn.ReLU(True),
+            nn.Dropout(),
+            nn.Linear(2048, 2048),
+            nn.ReLU(True),
+            nn.Dropout(),
+            nn.Linear(2048, num_classes),
+        )
+        self._initialize_weights()
+
+    def forward(self, x):
+        x = self.features(x)
+        x = F.adaptive_avg_pool2d(x,output_size=1)
+        x = x.view(x.size(0), -1)
+        x = self.fc(x)
+
+        logit = x
+        prob = F.sigmoid(logit)
+        return logit, prob
+
+
+--missing keys at load_valid():--
+	 fc.0.weight
+	 fc.0.bias
+	 fc.3.weight
+	 fc.3.bias
+	 fc.6.weight
+	 fc.6.bias
+------------------------
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7f24cad49978>
+ LR=Step Learning Rates
+rates=['0.1000', '0.0100', '0.0050', '0.0010', '0.0001', '-1.0000']
+steps=['0', '10', '25', '35', '40', '43']
+
+ epoch   iter   rate  |  smooth_loss   |  train_loss  (acc)  |  valid_loss  (acc)  | min
+----------------------------------------------------------------------------------------
+
+--- [START 2017-07-13 18:46:48] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED    = 123
+	file    = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/code/standard-7-1/train-forest-0.py
+	out_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/vgg19-jpg-0
+
+** dataset setting **
+	(height,width) = (128, 128)
+	in_channels    = 3
+	train_dataset.split  = train-32479
+	train_dataset.num    = 32479
+	test_dataset.split   = valid-8000
+	test_dataset.num     = 8000
+	batch_size           = 48
+	train_loader.sampler = <torch.utils.data.sampler.RandomSampler object at 0x7fa0ccabb160>
+	test_loader.sampler  = <torch.utils.data.sampler.SequentialSampler object at 0x7fa0cfebdef0>
+
+def augment(x, u=0.75):
+    if random.random()<u:
+        if random.random()>0.5:
+            x = randomDistort1(x, distort_limit=0.35, shift_limit=0.25, u=1)
+        else:
+            x = randomDistort2(x, num_steps=10, distort_limit=0.2, u=1)
+        x = randomShiftScaleRotate(x, shift_limit=0.0625, scale_limit=0.10, rotate_limit=45, u=1)
+
+    x = randomFlip(x, u=0.5)
+    x = randomTranspose(x, u=0.5)
+    x = randomContrast(x, limit=0.2, u=0.5)
+    #x = randomSaturation(x, limit=0.2, u=0.5),
+    x = randomFilter(x, limit=0.5, u=0.2)
+    return x
+
+
+** net setting **
+<class 'net.model.vggnet.VGG'>
+
+    def __init__(self, in_shape, num_classes, cfg, batch_norm=False):
+        super(VGG, self).__init__()
+        in_channels, height, width = in_shape
+
+        self.features = self.make_layers(cfg=cfg, in_shape=in_shape, batch_norm=batch_norm)
+        self.fc = nn.Sequential(
+            nn.Linear(512, 2048),
+            nn.ReLU(True),
+            nn.Dropout(),
+            nn.Linear(2048, 2048),
+            nn.ReLU(True),
+            nn.Dropout(),
+            nn.Linear(2048, num_classes),
+        )
+        self._initialize_weights()
+
+    def forward(self, x):
+        x = self.features(x)
+        x = F.adaptive_avg_pool2d(x,output_size=1)
+        x = x.view(x.size(0), -1)
+        x = self.fc(x)
+
+        logit = x
+        prob = F.sigmoid(logit)
+        return logit, prob
+
+
+--missing keys at load_valid():--
+	 fc.0.weight
+	 fc.0.bias
+	 fc.3.weight
+	 fc.3.bias
+	 fc.6.weight
+	 fc.6.bias
+------------------------
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7fa0cfedc7f0>
+ LR=Step Learning Rates
+rates=['0.1000', '0.0100', '0.0050', '0.0010', '0.0001', '-1.0000']
+steps=['0', '10', '25', '35', '40', '43']
+
+ epoch   iter   rate  |  smooth_loss   |  train_loss  (acc)  |  valid_loss  (acc)  | min
+----------------------------------------------------------------------------------------
+  1.0     676    0.1000   |  0.1281  | 0.1201  0.8856 | 0.1456  0.8568  |  4.9 min 
+  2.0     676    0.1000   |  0.1178  | 0.1184  0.9206 | 0.1448  0.8582  |  4.2 min 
+  3.0     676    0.1000   |  0.1276  | 0.0973  0.9177 | 0.2224  0.7331  |  4.2 min 
+  4.0     676    0.1000   |  0.1275  | 0.1375  0.8572 | 0.1251  0.8897  |  4.2 min 
+  5.0     676    0.1000   |  0.1366  | 0.1790  0.8174 | 0.1336  0.8655  |  4.2 min 
+  6.0     676    0.1000   |  0.1309  | 0.1496  0.8528 | 0.2077  0.8005  |  4.2 min 
+  7.0     676    0.1000   |  0.1277  | 0.0963  0.9237 | 0.1427  0.8646  |  4.2 min 
+  8.0     676    0.1000   |  0.1278  | 0.1443  0.8470 | 0.1901  0.8305  |  4.2 min 
+  9.0     676    0.1000   |  0.1348  | 0.1471  0.8675 | 0.1419  0.8665  |  4.2 min 
+ 10.0     676    0.1000   |  0.1382  | 0.1119  0.8956 | 0.1302  0.8761  |  4.2 min 
+ 11.0     676    0.0100   |  0.1134  | 0.1313  0.8937 | 0.1031  0.9042  |  4.2 min 
+ 12.0     676    0.0100   |  0.1006  | 0.0967  0.9186 | 0.0986  0.9114  |  4.2 min 
+ 13.0     676    0.0100   |  0.1034  | 0.1109  0.8831 | 0.0992  0.9104  |  4.2 min 
+ 14.0     676    0.0100   |  0.1016  | 0.0833  0.9265 | 0.0969  0.9147  |  4.2 min 
+ 15.0     676    0.0100   |  0.1072  | 0.0808  0.9431 | 0.0962  0.9140  |  4.2 min 
+ 16.0     676    0.0100   |  0.1067  | 0.1051  0.9280 | 0.0954  0.9159  |  4.2 min 
+ 17.0     676    0.0100   |  0.1162  | 0.1353  0.8733 | 0.0965  0.9124  |  4.2 min 
+ 18.0     676    0.0100   |  0.1097  | 0.1099  0.8811 | 0.0949  0.9180  |  4.2 min 
+ 19.0     676    0.0100   |  0.1039  | 0.0970  0.9176 | 0.0968  0.9153  |  4.2 min 
+ 20.0     676    0.0100   |  0.1065  | 0.0816  0.9329 | 0.0979  0.9105  |  4.2 min 
+ 21.0     676    0.0100   |  0.0931  | 0.0860  0.9322 | 0.0941  0.9166  |  4.2 min 
+ 22.0     676    0.0100   |  0.1063  | 0.1188  0.9033 | 0.0945  0.9157  |  4.2 min 
+ 23.0     676    0.0100   |  0.1068  | 0.1171  0.9047 | 0.0980  0.9114  |  4.2 min 
+ 24.0     676    0.0100   |  0.1083  | 0.1180  0.8808 | 0.0944  0.9174  |  4.2 min 
+ 25.0     676    0.0100   |  0.0987  | 0.1070  0.9160 | 0.0957  0.9137  |  4.2 min 
+ 26.0     676    0.0050   |  0.0908  | 0.0930  0.9347 | 0.0916  0.9193  |  4.2 min 
+ 27.0     676    0.0050   |  0.1004  | 0.1153  0.9098 | 0.0919  0.9174  |  4.2 min 
+ 28.0     676    0.0050   |  0.0909  | 0.0901  0.9227 | 0.0982  0.9118  |  4.2 min 
+ 29.0     676    0.0050   |  0.1019  | 0.0992  0.9107 | 0.0941  0.9178  |  4.2 min 
+ 30.0     676    0.0050   |  0.1009  | 0.1048  0.9228 | 0.0911  0.9199  |  4.2 min 
+ 31.0     676    0.0050   |  0.0963  | 0.1030  0.8970 | 0.0972  0.9123  |  4.2 min 
+ 32.0     676    0.0050   |  0.1008  | 0.0942  0.9118 | 0.0940  0.9140  |  4.2 min 
+ 33.0     676    0.0050   |  0.1017  | 0.0973  0.9306 | 0.0937  0.9191  |  4.3 min 
+ 34.0     676    0.0050   |  0.0891  | 0.0942  0.9281 | 0.0911  0.9208  |  4.2 min 
+ 35.0     676    0.0050   |  0.0993  | 0.0489  0.9702 | 0.0917  0.9180  |  4.2 min 
+ 36.0     676    0.0010   |  0.0948  | 0.1029  0.9189 | 0.0878  0.9224  |  4.2 min 
+ 37.0     676    0.0010   |  0.1002  | 0.0916  0.9255 | 0.0878  0.9227  |  4.2 min 
+ 38.0     676    0.0010   |  0.0912  | 0.1004  0.9141 | 0.0891  0.9192  |  4.2 min 
+ 39.0     676    0.0010   |  0.0904  | 0.0914  0.9154 | 0.0878  0.9222  |  4.2 min 
+ 40.0     676    0.0010   |  0.0914  | 0.0650  0.9528 | 0.0886  0.9197  |  4.3 min 
+ 41.0     676    0.0001   |  0.0858  | 0.0729  0.9504 | 0.0873  0.9219  |  4.2 min 
+ 42.0     676    0.0001   |  0.0928  | 0.0885  0.9159 | 0.0873  0.9221  |  4.2 min 
+ 43.0     676    0.0001   |  0.0875  | 0.0898  0.9265 | 0.0872  0.9226  |  4.2 min 
+
+/home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/vgg19-jpg-0/snap/final.torch:
+	all time to train=196.0 min
+	test_loss=0.087190, test_acc=0.922585

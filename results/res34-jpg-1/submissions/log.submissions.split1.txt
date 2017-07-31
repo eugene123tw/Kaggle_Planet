@@ -1,0 +1,54 @@
+
+--- [START 2017-07-20 14:07:05] ----------------------------------------------------------------
+
+
+** dataset setting **
+	(height,width)    = (256, 256)
+	in_channels       = 3
+	test_dataset.split = test-30000
+	test_dataset.num  = 30000
+	batch_size        = 64
+
+** net setting **
+	model_file = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/snap/final.torch
+
+** predict @ agument = default **
+** predict @ agument = left-right **
+
+--- [START 2017-07-20 14:16:44] ----------------------------------------------------------------
+
+
+** dataset setting **
+	(height,width)    = (256, 256)
+	in_channels       = 3
+	test_dataset.split = test-30000
+	test_dataset.num  = 30000
+	batch_size        = 32
+
+** net setting **
+	model_file = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/snap/final.torch
+
+** predict @ agument = default **
+** predict @ agument = left-right **
+
+--- [START 2017-07-20 14:26:38] ----------------------------------------------------------------
+
+
+** dataset setting **
+	(height,width)    = (256, 256)
+	in_channels       = 3
+	test_dataset.split = test-30000
+	test_dataset.num  = 30000
+	batch_size        = 32
+
+** net setting **
+	model_file = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/res34-jpg-1/snap/final.torch
+
+** predict @ agument = default **
+** predict @ agument = left-right **
+** predict @ agument = up-down **
+** predict @ agument = transpose **
+** predict @ agument = rotate90 **
+** predict @ agument = rotate180 **
+** predict @ agument = rotate270 **
+

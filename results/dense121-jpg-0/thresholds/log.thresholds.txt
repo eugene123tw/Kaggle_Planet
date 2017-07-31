@@ -1,0 +1,156 @@
+
+--- [START 2017-07-19 14:38:55] ----------------------------------------------------------------
+
+
+** dataset setting **
+	(height,width)     = (128, 128)
+	in_channels        = 3
+	test_dataset.split = train-40479
+	test_dataset.num   = 40479
+	batch_size         = 64
+
+** net setting **
+	model_file = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/dense121-jpg-0/snap/final.torch
+
+** predict @ agument = default **
+		test_loss=0.085742, test_acc=0.925937
+
+** predict @ agument = left-right **
+		test_loss=0.088072, test_acc=0.923670
+
+** predict @ agument = up-down **
+		test_loss=0.088204, test_acc=0.923618
+
+** predict @ agument = transpose **
+		test_loss=0.088485, test_acc=0.923203
+
+** predict @ agument = rotate90 **
+		test_loss=0.088175, test_acc=0.923590
+
+** predict @ agument = rotate180 **
+		test_loss=0.088072, test_acc=0.923670
+
+** predict @ agument = rotate270 **
+		test_loss=0.085694, test_acc=0.926196
+
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/dense121-jpg-0/thresholds/default **
+*best_threshold (fixed)*
+[ 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205,
+  0.205, 0.205, 0.205, 0.205, 0.205, 0.205, 0.205]
+*best_score*
+0.9263 (0.9263)
+*best_threshold (per class)*
+[ 0.280, 0.160, 0.190, 0.090, 0.310, 0.200, 0.170, 0.220, 0.230, 0.300,
+  0.120, 0.090, 0.140, 0.260, 0.180, 0.170, 0.040]
+*best_score*
+0.9284 (0.9284)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/dense121-jpg-0/thresholds/left-right **
+*best_threshold (fixed)*
+[ 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210,
+  0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210]
+*best_score*
+0.9240 (0.9240)
+*best_threshold (per class)*
+[ 0.250, 0.150, 0.150, 0.110, 0.270, 0.200, 0.180, 0.230, 0.240, 0.330,
+  0.100, 0.090, 0.140, 0.160, 0.180, 0.250, 0.050]
+*best_score*
+0.9262 (0.9262)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/dense121-jpg-0/thresholds/up-down **
+*best_threshold (fixed)*
+[ 0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200,
+  0.200, 0.200, 0.200, 0.200, 0.200, 0.200, 0.200]
+*best_score*
+0.9242 (0.9242)
+*best_threshold (per class)*
+[ 0.270, 0.170, 0.190, 0.080, 0.310, 0.220, 0.200, 0.200, 0.220, 0.280,
+  0.110, 0.110, 0.120, 0.120, 0.180, 0.240, 0.040]
+*best_score*
+0.9264 (0.9264)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/dense121-jpg-0/thresholds/transpose **
+*best_threshold (fixed)*
+[ 0.195, 0.195, 0.195, 0.195, 0.195, 0.195, 0.195, 0.195, 0.195, 0.195,
+  0.195, 0.195, 0.195, 0.195, 0.195, 0.195, 0.195]
+*best_score*
+0.9238 (0.9238)
+*best_threshold (per class)*
+[ 0.260, 0.190, 0.150, 0.070, 0.330, 0.200, 0.190, 0.210, 0.250, 0.300,
+  0.110, 0.110, 0.120, 0.160, 0.200, 0.210, 0.040]
+*best_score*
+0.9261 (0.9261)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/dense121-jpg-0/thresholds/rotate90 **
+*best_threshold (fixed)*
+[ 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210,
+  0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210]
+*best_score*
+0.9242 (0.9242)
+*best_threshold (per class)*
+[ 0.230, 0.160, 0.170, 0.060, 0.330, 0.210, 0.210, 0.210, 0.200, 0.320,
+  0.110, 0.100, 0.110, 0.190, 0.200, 0.190, 0.040]
+*best_score*
+0.9265 (0.9265)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/dense121-jpg-0/thresholds/rotate180 **
+*best_threshold (fixed)*
+[ 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210,
+  0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210]
+*best_score*
+0.9240 (0.9240)
+*best_threshold (per class)*
+[ 0.250, 0.150, 0.150, 0.110, 0.270, 0.200, 0.180, 0.230, 0.240, 0.330,
+  0.100, 0.090, 0.140, 0.160, 0.180, 0.250, 0.050]
+*best_score*
+0.9262 (0.9262)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/dense121-jpg-0/thresholds/rotate270 **
+*best_threshold (fixed)*
+[ 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210,
+  0.210, 0.210, 0.210, 0.210, 0.210, 0.210, 0.210]
+*best_score*
+0.9264 (0.9264)
+*best_threshold (per class)*
+[ 0.260, 0.210, 0.230, 0.100, 0.310, 0.230, 0.190, 0.210, 0.250, 0.260,
+  0.100, 0.090, 0.110, 0.160, 0.180, 0.190, 0.040]
+*best_score*
+0.9286 (0.9286)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/dense121-jpg-0/thresholds/average **
+*best_threshold (fixed)*
+[ 0.215, 0.215, 0.215, 0.215, 0.215, 0.215, 0.215, 0.215, 0.215, 0.215,
+  0.215, 0.215, 0.215, 0.215, 0.215, 0.215, 0.215]
+*best_score*
+0.9262 (0.9262)
+*best_threshold (per class)*
+[ 0.290, 0.180, 0.170, 0.080, 0.330, 0.230, 0.190, 0.220, 0.220, 0.320,
+  0.080, 0.100, 0.150, 0.160, 0.210, 0.220, 0.040]
+*best_score*
+0.9284 (0.9284)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/dense121-jpg-0/thresholds/max **
+*best_threshold (fixed)*
+[ 0.265, 0.265, 0.265, 0.265, 0.265, 0.265, 0.265, 0.265, 0.265, 0.265,
+  0.265, 0.265, 0.265, 0.265, 0.265, 0.265, 0.265]
+*best_score*
+0.9258 (0.9258)
+*best_threshold (per class)*
+[ 0.370, 0.230, 0.280, 0.120, 0.360, 0.290, 0.270, 0.280, 0.270, 0.370,
+  0.120, 0.120, 0.180, 0.330, 0.260, 0.270, 0.050]
+*best_score*
+0.9280 (0.9280)
+
+** thresholding @ test_dir = /home/eugene/Documents/Kaggle_Planet/forest-developer/standard-eugene/results/dense121-jpg-0/thresholds/vote **
+*best_threshold (fixed)*
+[ 0.430, 0.430, 0.430, 0.430, 0.430, 0.430, 0.430, 0.430, 0.430, 0.430,
+  0.430, 0.430, 0.430, 0.430, 0.430, 0.430, 0.430]
+*best_score*
+0.9282 (0.9282)
+*best_threshold (per class)*
+[ 0.580, 0.290, 0.430, 0.580, 0.720, 0.580, 0.430, 0.430, 0.290, 0.430,
+  0.150, 0.430, 0.290, 0.430, 0.430, 0.150, 0.290]
+*best_score*
+0.9285 (0.9285)
+
