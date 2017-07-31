@@ -7,3 +7,5 @@ In this competition, Planet and its Brazilian partner SCCON are challenging Kagg
 ## Result
 115 of 938 teams (Ranking Top 13%)
 
+![Result1](https://github.com/eugene123tw/Kaggle_Planet/blob/master/result1.png)
+![Result2](https://github.com/eugene123tw/Kaggle_Planet/blob/master/result2.png)
